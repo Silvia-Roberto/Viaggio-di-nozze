@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roberto & Silvia - Il Nostro Viaggio di Nozze</title>
+    <!-- Google Fonts per stile Safari / Elegante -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #8C5319;       /* Ocra / Terracotta */
+            --primary-dark: #5C330B;  /* Terra scura */
+            --accent: #D9822B;       /* Tramonto */
+            --bg-light: #F9F6F0;     /* Sabbia chiaro */
+            --bg-card: #FFFFFF;
+            --text-dark: #2C2523;     /* Antracite caldo */
+            --text-muted: #6E655F;
+            --green-safari: #4A5D4E; /* Verde savana */
+            --shadow: 0 10px 25px rgba(0,0,0,0.08);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+        }
+
+        /* HERO HEADER */
+        .hero {
+            position: relative;
+            height: 75vh;
+            min-height: 480px;
+            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), 
+                        url('https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #FFFFFF;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p.quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            font-weight: 400;
+            margin-top: 15px;
+            color: #FDF4E3;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .divider-icon {
+            font-size: 1.5rem;
+            margin: 15px 0;
+            color: var(--accent);
+        }
+
+        /* CONTAINER GENERALI */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* SPIEGAZIONE LISTA NOZZE */
+        .info-banner {
+            background-color: #EFE8DC;
+            border-left: 4px solid var(--primary);
+            padding: 25px 30px;
+            border-radius: 8px;
+            margin-bottom: 50px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .info-banner h3 {
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+        }
+
+        .info-banner p {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* GRID ESPERIENZE */
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 50px 0 25px 0;
+            border-bottom: 2px solid #E2D9CC;
+            padding-bottom: 10px;
+        }
+
+        .category-header h2 {
+            font-size: 2.2rem;
+            color: var(--green-safari);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        /* CARD ESPERIENZA */
+        .card {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .img-container {
+            overflow: hidden;
+            position: relative;
+            height: 210px;
+        }
+
+        .card-img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .card:hover .card-img {
+            transform: scale(1.06);
+        }
+
+        .card-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-size: 1.35rem;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .card-subtitle {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-btn {
+            display: block;
+            background-color: var(--primary);
+            color: #FFF;
+            text-align: center;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card:hover .card-btn {
+            background-color: var(--primary-dark);
+        }
+
+        /* MODALE POPUP */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-content {
+            background-color: #FFF;
+            width: 100%;
+            max-width: 600px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            background: rgba(0,0,0,0.9);
+        }
+
+        .modal-img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+        }
+
+        .modal-subtitle {
+            font-size: 1rem;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .price-tag {
+            display: inline-block;
+            background-color: #F3EBE1;
+            color: var(--primary-dark);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            border: 1px solid var(--primary);
+        }
+
+        .modal-text-info {
+            background-color: var(--bg-light);
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.92rem;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .iban-box {
+            background-color: #F4F6F4;
+            border: 2px dashed var(--green-safari);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .iban-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .iban-code {
+            font-family: monospace;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: 1px;
+            margin: 10px 0;
+            word-break: break-all;
+        }
+
+        .iban-holder {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+        }
+
+        .copy-btn {
+            background-color: var(--green-safari);
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .copy-btn:hover {
+            background-color: #38473B;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--primary-dark);
+            color: #E2D9CC;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        footer h3 {
+            font-size: 2rem;
+            color: #FFF;
+            margin-bottom: 10px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p.quote { font-size: 1.3rem; }
+            .section-title { font-size: 2.2rem; }
+            .modal-body { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO HEADER -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>ROBERTO & SILVIA</h1>
+            <div class="divider-icon">🌿 🌍 🐾</div>
+            <p class="quote">"Il nostro viaggio di nozze sarà il primo capitolo della prossima avventura insieme"</p>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+
+        <!-- INTRODUZIONE LISTA NOZZE -->
+        <div class="info-banner">
+            <h3>Come funziona la nostra Lista Nozze</h3>
+            <p>
+                Il regalo più grande è condividere con voi la gioia del nostro matrimonio. Se desiderate aiutarci a realizzare il nostro sogno in Tanzania e Zanzibar, potete scegliere di **regalare un'esperienza intera, una o più quote**, oppure effettuare un **contributo con importo personalizzato**. Cliccate sulle tappe per scoprirne i dettagli e le coordinate bancarie!
+            </p>
+        </div>
+
+        <h2 class="section-title">Le Tappe del Nostro Viaggio</h2>
+        <p class="section-subtitle">Dalle savane selvagge della Tanzania alle acque cristalline di Zanzibar</p>
+
+        <!-- SEZIONE 1: TANZANIA SAFARI -->
+        <div class="category-header">
+            <h2>🌍 Tanzania - Avventura nella Savana</h2>
+        </div>
+        <div class="cards-grid" id="safari-grid">
+            <!-- Popolato via JavaScript -->
+        </div>
+
+        <!-- SEZIONE 2: ZANZIBAR RELAX -->
+        <div class="category-header" style="margin-top: 60px;">
+            <h2>🏝️ Zanzibar - Relax & Magia dell'Oceano</h2>
+        </div>
+        <div class="cards-grid" id="zanzibar-grid">
+            <!-- Popolato via JavaScript -->
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <h3>Roberto & Silvia</h3>
+        <p>Grazie di cuore per aiutarci a rendere indimenticabile questo viaggio!</p>
+    </footer>
+
+    <!-- MODALE POPUP -->
+    <div class="modal-overlay" id="experience-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <img src="" alt="" class="modal-img" id="modal-img">
+            <div class="modal-body">
+                <h3 class="modal-title" id="modal-title"></h3>
+                <p class="modal-subtitle" id="modal-subtitle"></p>
+                
+                <div class="price-tag">
+                    Valore Esperienza: <span id="modal-price"></span> €
+                </div>
+
+                <div class="modal-text-info">
+                    💡 <strong>Nota per l'invitato:</strong> Puoi scegliere di regalarci questa esperienza nella sua interezza, regalare una o più quote, oppure contribuire con un <strong>importo a tua scelta</strong>.
+                </div>
+
+                <div class="iban-box">
+                    <div class="iban-label">Coordinate per il Bonifico</div>
+                    <div class="iban-holder">Intestato a: Roberto Dogliotti, Silvia Greco</div>
+                    <div class="iban-code" id="iban-text">IT14Q0306901033100000078945</div>
+                    <button class="copy-btn" onclick="copyIban()">Copia Codice IBAN</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT CON ELENCO TAPPE ED IMMAGINI UNICHE -->
+    <script>
+        const safariExperiences = [
+            {
+                title: "L’Ora d’Oro: Brindisi al Tramonto tra i Baobab",
+                subtitle: "Briefing serale con aperitivo e vista mozzafiato sul tramonto nella savana, un primo assaggio di Africa a due passi dall’Arusha.",
+                price: 75,
+                // Baobab al tramonto con sfumature arancioni
+                img: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "Cuori e Zanne: Safari tra Elefanti e Fenicotteri Rosa",
+                subtitle: "Game drive nel Parco del Tarangire o al Lago Manyara, dove osserverete branchi di elefanti e stormi di fenicotteri che dipingono di rosa le rive.",
+                price: 150,
+                // Elefanti nel loro habitat
+                img: "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "Il Balcone dell’Eden: Sguardo d’Amore sul Cratere",
+                subtitle: "Sosta panoramica al bordo del cratere di Ngorongoro, un momento sospeso nel tempo per ammirare l’immenso “Giardino dell’Eden” dall’alto.",
+                price: 75,
+                // Panorama spettacolare dall'alto di un canyon/cratere africano
+                img: "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "L’Abbraccio della Terra Rossa: Cerimonia con i Guerrieri Maasai",
+                subtitle: "Visita autentica a un villaggio Maasai, dove danze tradizionali e racconti antichi vi faranno sentire parte di una comunità leggendaria.",
+                price: 100,
+                // Abiti e cultura Maasai
+                img: "https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "Oltre l’Infinito: Il Grande Rendez-vous nel Serengeti",
+                subtitle: "Giornata intera di game drive nel Parco del Serengeti alla ricerca dei Big Five, un’immersione totale nella natura selvaggia più iconica del mondo.",
+                price: 200,
+                // Leone maestoso nella savana
+                img: "https://images.unsplash.com/photo-1615963244664-5b845b2025ee?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "Alba Dorata: Il Risveglio del Re della Savana",
+                subtitle: "Game drive all’alba nel Serengeti, con sveglia prima del sorgere del sole per assistere al momento magico in cui la savana si risveglia.",
+                price: 150,
+                // Alba sulla savana con silhouette d'acacia
+                img: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "Il Giardino Segreto di Ngorongoro: Discesa nel Cratere",
+                subtitle: "Discesa fino al fondo del cratere di Ngorongoro per un safari di giornata tra oltre 30.000 animali, in uno degli ecosistemi più affascinanti della Terra.",
+                price: 200,
+                // Zebre ed erba verde all'interno dell'ecosistema
+                img: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "Picnic Sotto l’Acacia: Pranzo degli Sposi nella Natura Selvaggia",
+                subtitle: "Pranzo al sacco servito in mezzo alla savana, all’ombra di un’acacia, con il silenzio rotto solo dal fruscio del vento e dai richiami degli animali.",
+                price: 75,
+                // Tipica acacia solitaria nella vasta savana
+                img: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=800&q=80"
+            }
+        ];
+
+        const zanzibarExperiences = [
+            {
+                title: "Rituale dell'Amore: Massaggio di Coppia sull'Oceano",
+                subtitle: "Trattamento spa esclusivo per due in una cabina con vista sull’oceano, dove oli essenziali e tecniche tradizionali vi regaleranno puro benessere.",
+                price: 150,
+                // Spa / Relax vista mare
+                img: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "Cena delle Stelle: Banchetto a Lume di Candela in Riva al Mare",
+                subtitle: "Cena privata a 5 portate con i piedi nella sabbia bianca, candele e il rumore delle onde, per una serata romantica indimenticabile.",
+                price: 200,
+                // Tavolo romantico e lume di candela in spiaggia
+                img: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "Colazione degli Sposi: Un Risveglio tra i Profumi dell'Isola",
+                subtitle: "Colazione romantica servita in camera o in una location riservata del resort, con frutta tropicale fresca e prelibatezze locali per iniziare il giorno con dolcezza.",
+                price: 75,
+                // Colazione tropicale vista mare
+                img: "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "Puro Abbandono: Giornata di Totale Relax in Resort",
+                subtitle: "Una giornata interamente dedicata al relax: piscina a sfioro con vista sull’oceano, lettini in spiaggia, cocktail al tramonto e nessun obbligo se non quello di godervi il momento.",
+                price: 75,
+                // Piscina infinity vista oceano
+                img: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "Il Gioco dei Delfini: Un Incontro nel Mare di Smeraldo",
+                subtitle: "Escursione in barca all’alba verso l’atollo di Mnemba per avvistare e nuotare con i delfini selvaggi nelle acque cristalline.",
+                price: 150,
+                // Delfini in acqua limpida
+                img: "https://images.unsplash.com/photo-1570459027562-4a916cc6113f?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "Il Giardino di Corallo: Snorkeling tra i Pesci Tropicali",
+                subtitle: "Esplorazione subacquea della riserva marina di Mnemba, dove nuoterete tra barriere coralline colorate, tartarughe e migliaia di pesci tropicali.",
+                price: 100,
+                // Snorkeling barriera corallina
+                img: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "Tramonto dei Desideri: Crociera Romantica in Dhow con Cena",
+                subtitle: "Vela al tramonto su un tradizionale dhow in legno, con cena preparata a bordo mentre il cielo si tinge di oro, rosso e viola.",
+                price: 200,
+                // Barca dhow al tramonto
+                img: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "L'Isola Segreta: Picnic sulla Lingua di Sabbia",
+                subtitle: "Gita in barca verso una lingua di sabbia bianca che emerge con la bassa marea, con snorkeling e picnic a base di frutta tropicale fresca.",
+                price: 150,
+                // Atollo / Lingua di sabbia turchese
+                img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "I Profumi dell'Isola: Tour delle Spezie e Stone Town",
+                subtitle: "Visita a una piantagione di spezie (chiodi di garofano, cannella, vaniglia) e passeggiata culturale nel labirinto storico di Stone Town, patrimonio UNESCO.",
+                price: 100,
+                // Spezie cromatiche
+                img: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "L'Isola delle Tartarughe: Incontro con i Giganti di Prison Island",
+                subtitle: "Breve traversata in barca fino a Prison Island per dare da mangiare alle famose tartarughe giganti di Aldabra e fare snorkeling nelle acque circostanti.",
+                price: 75,
+                // Tartaruga gigante
+                img: "https://images.unsplash.com/photo-1548366086-7f1b76106622?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "La Foresta Incantata: Alla Scoperta dei Colobi Rossi di Jozani",
+                subtitle: "Escursione nella foresta pluviale di Jozani, l’ultima a Zanzibar, per avvistare le scimmie endemiche Colobo rosso e camminare su passerelle sospese nella natura.",
+                price: 100,
+                // Scimmia nella vegetazione pluviale
+                img: "https://images.unsplash.com/photo-1523805009345-7448845a9e53?auto=format&fit=crop&w=800&q=80"
+            }
+        ];
+
+        // FUNZIONE PER RENDERIZARE LE CARDS
+        function renderCards(list, containerId) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = list.map((item) => `
+                <div class="card" onclick="openModal('${escapeQuotes(item.title)}', '${escapeQuotes(item.subtitle)}', ${item.price}, '${item.img}')">
+                    <div class="img-container">
+                        <img src="${item.img}" alt="${item.title}" class="card-img" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <div>
+                            <h3 class="card-title">${item.title}</h3>
+                            <p class="card-subtitle">${item.subtitle}</p>
+                        </div>
+                        <span class="card-btn">Regala o Contribuisci</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function escapeQuotes(str) {
+            return str.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+        }
+
+        // CARICAMENTO AL LOAD
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCards(safariExperiences, 'safari-grid');
+            renderCards(zanzibarExperiences, 'zanzibar-grid');
+        });
+
+        // GESTIONE MODALE
+        function openModal(title, subtitle, price, img) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-subtitle').innerText = subtitle;
+            document.getElementById('modal-price').innerText = price;
+            document.getElementById('modal-img').src = img;
+            
+            document.getElementById('experience-modal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('experience-modal').classList.remove('active');
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('experience-modal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // COPIA IBAN
+        function copyIban() {
+            const iban = document.getElementById('iban-text').innerText;
+            navigator.clipboard.writeText(iban).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                const origText = btn.innerText;
+                btn.innerText = 'Copiato! ✓';
+                btn.style.backgroundColor = '#8C5319';
+                setTimeout(() => {
+                    btn.innerText = origText;
+                    btn.style.backgroundColor = 'var(--green-safari)';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
