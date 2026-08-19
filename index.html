@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roberto & Silvia - Il Nostro Viaggio di Nozze</title>
+    <title>Silvia & Roberto - Il Nostro Viaggio di Nozze</title>
     <!-- Google Fonts per stile Safari / Elegante -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -102,18 +102,18 @@
             text-align: center;
             font-size: 1.1rem;
             color: var(--text-muted);
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             text-transform: uppercase;
             letter-spacing: 1.5px;
         }
 
-        /* SPIEGAZIONE LISTA NOZZE */
+        /* INTRODUZIONE LISTA NOZZE */
         .info-banner {
             background-color: #EFE8DC;
             border-left: 4px solid var(--primary);
             padding: 25px 30px;
             border-radius: 8px;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             text-align: center;
             box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
@@ -131,12 +131,42 @@
             margin: 0 auto;
         }
 
+        /* BOTTONI FILTRO */
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background-color: #EFE8DC;
+            color: var(--text-dark);
+            border: none;
+            padding: 10px 22px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary);
+            color: #FFF;
+        }
+
         /* GRID ESPERIENZE */
+        .category-section {
+            transition: var(--transition);
+        }
+
         .category-header {
             display: flex;
             align-items: center;
             gap: 15px;
-            margin: 50px 0 25px 0;
+            margin: 40px 0 25px 0;
             border-bottom: 2px solid #E2D9CC;
             padding-bottom: 10px;
         }
@@ -173,7 +203,7 @@
         .img-container {
             overflow: hidden;
             position: relative;
-            height: 210px;
+            height: 220px;
         }
 
         .card-img {
@@ -198,18 +228,8 @@
         .card-title {
             font-size: 1.35rem;
             color: var(--primary-dark);
-            margin-bottom: 8px;
-            line-height: 1.3;
-        }
-
-        .card-subtitle {
-            font-size: 0.88rem;
-            color: var(--text-muted);
             margin-bottom: 15px;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
+            line-height: 1.3;
         }
 
         .card-btn {
@@ -230,14 +250,16 @@
             background-color: var(--primary-dark);
         }
 
-        /* MODALE POPUP */
+        /* MODALE POPUP CON BLUR */
         .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -256,7 +278,7 @@
         .modal-content {
             background-color: #FFF;
             width: 100%;
-            max-width: 600px;
+            max-width: 650px;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
@@ -296,7 +318,7 @@
 
         .modal-img {
             width: 100%;
-            height: 260px;
+            height: 280px;
             object-fit: cover;
         }
 
@@ -307,36 +329,24 @@
         .modal-title {
             font-size: 2rem;
             color: var(--primary-dark);
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
 
-        .modal-subtitle {
-            font-size: 1rem;
+        .modal-description {
+            font-size: 0.98rem;
             color: var(--text-dark);
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-
-        .price-tag {
-            display: inline-block;
-            background-color: #F3EBE1;
-            color: var(--primary-dark);
-            padding: 8px 18px;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            border: 1px solid var(--primary);
+            margin-bottom: 25px;
+            line-height: 1.6;
         }
 
         .modal-text-info {
             background-color: var(--bg-light);
-            padding: 15px;
+            padding: 18px;
             border-radius: 8px;
-            font-size: 0.92rem;
+            font-size: 0.95rem;
             color: var(--text-dark);
             margin-bottom: 20px;
-            border-left: 3px solid var(--accent);
+            border-left: 4px solid var(--accent);
         }
 
         .iban-box {
@@ -372,20 +382,56 @@
             margin-bottom: 15px;
         }
 
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
         .copy-btn {
             background-color: var(--green-safari);
             color: white;
             border: none;
-            padding: 8px 18px;
-            border-radius: 5px;
+            padding: 10px 18px;
+            border-radius: 6px;
             cursor: pointer;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-weight: 500;
             transition: var(--transition);
         }
 
         .copy-btn:hover {
             background-color: #38473B;
+        }
+
+        .copy-btn.secondary {
+            background-color: var(--primary);
+        }
+
+        .copy-btn.secondary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* NOTIFICA TOAST */
+        .toast {
+            position: fixed;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #2C2523;
+            color: #FFF;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: bottom 0.4s ease;
+            z-index: 2000;
+        }
+
+        .toast.show {
+            bottom: 30px;
         }
 
         /* FOOTER */
@@ -413,6 +459,7 @@
             .hero p.quote { font-size: 1.3rem; }
             .section-title { font-size: 2.2rem; }
             .modal-body { padding: 20px; }
+            .action-buttons { flex-direction: column; }
         }
     </style>
 </head>
@@ -421,7 +468,7 @@
     <!-- HERO HEADER -->
     <header class="hero">
         <div class="hero-content">
-            <h1>ROBERTO & SILVIA</h1>
+            <h1>SILVIA & ROBERTO</h1>
             <div class="divider-icon">🌿 🌍 🐾</div>
             <p class="quote">"Il nostro viaggio di nozze sarà il primo capitolo della prossima avventura insieme"</p>
         </div>
@@ -434,34 +481,45 @@
         <div class="info-banner">
             <h3>Come funziona la nostra Lista Nozze</h3>
             <p>
-                Il regalo più grande è condividere con voi la gioia del nostro matrimonio. Se desiderate aiutarci a realizzare il nostro sogno in Tanzania e Zanzibar, potete scegliere di **regalare un'esperienza intera, una o più quote**, oppure effettuare un **contributo con importo personalizzato**. Cliccate sulle tappe per scoprirne i dettagli e le coordinate bancarie!
+                Qui sotto trovate le tappe e le esperienze che comporranno il nostro meraviglioso viaggio di nozze tra la savana e l'Oceano Indiano. Se volete aiutarci a realizzare questo sogno, potete scegliere di associarvi a una o più esperienze regalando il vostro contributo! Cliccate sulle singole schede per scoprire i dettagli di ogni avventura.
             </p>
         </div>
 
         <h2 class="section-title">Le Tappe del Nostro Viaggio</h2>
-        <p class="section-subtitle">Dalle savane selvagge della Tanzania alle acque cristalline di Zanzibar</p>
+        <p class="section-subtitle">Sfoglia le esperienze o seleziona una categoria</p>
+
+        <!-- BOTTONI FILTRO -->
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterCategory('all')">✨ Tutte le Esperienze</button>
+            <button class="filter-btn" onclick="filterCategory('safari')">🌍 Safari Tanzania</button>
+            <button class="filter-btn" onclick="filterCategory('zanzibar')">🏝️ Zanzibar & Mare</button>
+        </div>
 
         <!-- SEZIONE 1: TANZANIA SAFARI -->
-        <div class="category-header">
-            <h2>🌍 Tanzania - Avventura nella Savana</h2>
-        </div>
-        <div class="cards-grid" id="safari-grid">
-            <!-- Popolato via JavaScript -->
+        <div class="category-section" id="sec-safari">
+            <div class="category-header">
+                <h2>🌍 Tanzania - Avventura nella Savana</h2>
+            </div>
+            <div class="cards-grid" id="safari-grid">
+                <!-- Popolato via JavaScript -->
+            </div>
         </div>
 
         <!-- SEZIONE 2: ZANZIBAR RELAX -->
-        <div class="category-header" style="margin-top: 60px;">
-            <h2>🏝️ Zanzibar - Relax & Magia dell'Oceano</h2>
-        </div>
-        <div class="cards-grid" id="zanzibar-grid">
-            <!-- Popolato via JavaScript -->
+        <div class="category-section" id="sec-zanzibar" style="margin-top: 60px;">
+            <div class="category-header">
+                <h2>🏝️ Zanzibar - Relax & Magia dell'Oceano</h2>
+            </div>
+            <div class="cards-grid" id="zanzibar-grid">
+                <!-- Popolato via JavaScript -->
+            </div>
         </div>
 
     </main>
 
     <!-- FOOTER -->
     <footer>
-        <h3>Roberto & Silvia</h3>
+        <h3>Silvia & Roberto</h3>
         <p>Grazie di cuore per aiutarci a rendere indimenticabile questo viaggio!</p>
     </footer>
 
@@ -472,181 +530,146 @@
             <img src="" alt="" class="modal-img" id="modal-img">
             <div class="modal-body">
                 <h3 class="modal-title" id="modal-title"></h3>
-                <p class="modal-subtitle" id="modal-subtitle"></p>
-                
-                <div class="price-tag">
-                    Valore Esperienza: <span id="modal-price"></span> €
-                </div>
+                <p class="modal-description" id="modal-description"></p>
 
                 <div class="modal-text-info">
-                    💡 <strong>Nota per l'invitato:</strong> Puoi scegliere di regalarci questa esperienza nella sua interezza, regalare una o più quote, oppure contribuire con un <strong>importo a tua scelta</strong>.
+                    🎁 <strong>Nota per l'invitato:</strong> Puoi scegliere di regalarci questa o più esperienze! Ti chiediamo la cortesia di <strong>indicarlo nella causale del bonifico</strong> insieme al tuo nome, così da permetterci di ricordarci con affetto del tuo regalo speciale.
                 </div>
 
                 <div class="iban-box">
                     <div class="iban-label">Coordinate per il Bonifico</div>
                     <div class="iban-holder">Intestato a: Roberto Dogliotti, Silvia Greco</div>
                     <div class="iban-code" id="iban-text">IT14Q0306901033100000078945</div>
-                    <button class="copy-btn" onclick="copyIban()">Copia Codice IBAN</button>
+                    
+                    <div class="action-buttons">
+                        <button class="copy-btn" onclick="copyIban()">Copia Codice IBAN</button>
+                        <button class="copy-btn secondary" onclick="copyCausale()">Copia Causale Suggerita</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- JAVASCRIPT CON ELENCO TAPPE ED IMMAGINI UNICHE -->
+    <!-- NOTIFICA TOAST -->
+    <div class="toast" id="toast-notification">Testo Notifica</div>
+
+    <!-- JAVASCRIPT LOGICA -->
     <script>
         const safariExperiences = [
             {
                 title: "L’Ora d’Oro: Brindisi al Tramonto tra i Baobab",
-                subtitle: "Briefing serale con aperitivo e vista mozzafiato sul tramonto nella savana, un primo assaggio di Africa a due passi dall’Arusha.",
-                price: 75,
-                // Baobab al tramonto con sfumature arancioni
+                description: "Briefing serale con aperitivo e vista mozzafiato sul tramonto nella savana, un primo assaggio di Africa a due passi da Arusha. Sorseggiando un cocktail artigianale sotto l'ombra imponente dei baobab millenari, ascolteremo le guide esperte raccontarci le meraviglie che ci attendono, mentre i colori del cielo africano sfumano dal giallo ocra al rosso fuoco al calare del sole.",
                 img: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=800&q=80"
             },
             {
                 title: "Cuori e Zanne: Safari tra Elefanti e Fenicotteri Rosa",
-                subtitle: "Game drive nel Parco del Tarangire o al Lago Manyara, dove osserverete branchi di elefanti e stormi di fenicotteri che dipingono di rosa le rive.",
-                price: 150,
-                // Elefanti nel loro habitat
+                description: "Un'esaltante giornata di safari (game drive) nel Parco Nazionale del Tarangire o al Lago Manyara. Il Tarangire è celebre per ospitare la più alta concentrazione di elefanti della Tanzania, dove grandi famiglie pascolano tra i fiumi. Al Lago Manyara assisteremo allo spettacolo naturale di migliaia di fenicotteri rosa che popolano le sponde alcaline, insieme ad avvistamenti di leoni arrampicatori e giraffe.",
                 img: "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=800&q=80"
             },
             {
                 title: "Il Balcone dell’Eden: Sguardo d’Amore sul Cratere",
-                subtitle: "Sosta panoramica al bordo del cratere di Ngorongoro, un momento sospeso nel tempo per ammirare l’immenso “Giardino dell’Eden” dall’alto.",
-                price: 75,
-                // Panorama spettacolare dall'alto di un canyon/cratere africano
+                description: "Sosta panoramica e indimenticabile lungo i bordi del Cratere di Ngorongoro, posizionato a circa 2.200 metri di altitudine. Da questo belvedere naturale abbraccerete con lo sguardo la caldera vulcanica intatta più grande al mondo, spesso definita la 'Ottava Meraviglia del Mondo', un vero Giardino dell'Eden racchiuso tra maestose pareti verdi.",
+                // Foto del Cratere di Ngorongoro
                 img: "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=800&q=80"
             },
             {
                 title: "L’Abbraccio della Terra Rossa: Cerimonia con i Guerrieri Maasai",
-                subtitle: "Visita autentica a un villaggio Maasai, dove danze tradizionali e racconti antichi vi faranno sentire parte di una comunità leggendaria.",
-                price: 100,
-                // Abiti e cultura Maasai
+                description: "Un incontro culturale autentico ed emozionante all'interno di un tradizionale 'Boma' Maasai. Accolti dai canti ritmici e dalla celebre danza dei salti (Adumu), esploreremo lo stile di vita, la medicina tradizionale e la filosofia di questo popolo guerriero che vive in armonia con la natura selvaggia da secoli.",
                 img: "https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?auto=format&fit=crop&w=800&q=80"
             },
             {
                 title: "Oltre l’Infinito: Il Grande Rendez-vous nel Serengeti",
-                subtitle: "Giornata intera di game drive nel Parco del Serengeti alla ricerca dei Big Five, un’immersione totale nella natura selvaggia più iconica del mondo.",
-                price: 200,
-                // Leone maestoso nella savana
+                description: "Una giornata intera di esplorazione nel Parco Nazionale del Serengeti, il tempio della natura africana. A bordo del fuoristrada 4x4 esploreremo le sterminate praterie alla ricerca dei Big Five (leone, leopardo, elefante, rinoceronte e bufalo), seguendo le rotte delle immense mandrie di gnu e zebre e provando il brivido dell'Africa più authentic.",
                 img: "https://images.unsplash.com/photo-1615963244664-5b845b2025ee?auto=format&fit=crop&w=800&q=80"
             },
             {
                 title: "Alba Dorata: Il Risveglio del Re della Savana",
-                subtitle: "Game drive all’alba nel Serengeti, con sveglia prima del sorgere del sole per assistere al momento magico in cui la savana si risveglia.",
-                price: 150,
-                // Alba sulla savana con silhouette d'acacia
+                description: "Sveglia prima dell'alba per cogliere il momento più attivo della fauna selvatica. Quando i primi raggi del sole tingono di rosa la savana del Serengeti, i grandi predatori come leoni e ghepardi terminano la caccia notturna e si muovono tra l'erba alta. Un'esperienza sensoriale magica, avvolti dal fresco del mattino e dai suoni della natura selvaggia.",
                 img: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=800&q=80"
             },
             {
                 title: "Il Giardino Segreto di Ngorongoro: Discesa nel Cratere",
-                subtitle: "Discesa fino al fondo del cratere di Ngorongoro per un safari di giornata tra oltre 30.000 animali, in uno degli ecosistemi più affascinanti della Terra.",
-                price: 200,
-                // Zebre ed erba verde all'interno dell'ecosistema
-                img: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80"
+                description: "Una discesa mozzafiato di 600 metri per raggiungere il fondo del Cratere di Ngorongoro per un safari di un'intera giornata. Questo ecosistema unico al mondo ospita oltre 25.000 grandi mammiferi ed è uno dei rari luoghi in cui è possibile avvistare il raro Rinoceronte Nero orientale nel suo habitat naturale, circondato da specchi d'acqua e praterie lussureggianti.",
+                img: "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=800&q=80"
             },
             {
                 title: "Picnic Sotto l’Acacia: Pranzo degli Sposi nella Natura Selvaggia",
-                subtitle: "Pranzo al sacco servito in mezzo alla savana, all’ombra di un’acacia, con il silenzio rotto solo dal fruscio del vento e dai richiami degli animali.",
-                price: 75,
-                // Tipica acacia solitaria nella vasta savana
-                img: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=800&q=80"
+                description: "Un idilliaco pranzo al sacco allestito nel cuore del parco, all'ombra di un'acacia ombrellifera. Un momento di totale relax immersi nella savana incontaminata, gustando specialità fresche mentre si ascolta il soffio del vento tra la vegetazione e si osservano gli animali al pascolo in lontananza.",
+                // Foto di enormi acacie nella savana
+                img: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=800&q=80"
             }
         ];
 
         const zanzibarExperiences = [
             {
                 title: "Rituale dell'Amore: Massaggio di Coppia sull'Oceano",
-                subtitle: "Trattamento spa esclusivo per due in una cabina con vista sull’oceano, dove oli essenziali e tecniche tradizionali vi regaleranno puro benessere.",
-                price: 150,
-                // Spa / Relax vista mare
+                description: "Un'esperienza di benessere sensoriale in un padiglione privato affacciato sulle acque turchesi dell'Oceano Indiano. Il trattamento comprende un massaggio rilassante di coppia a base di oli essenziali biologici alle spezie locali (cannella, chiodi di garofano e vaniglia di Zanzibar), accompagnato dal suono rilassante delle onde del mare.",
                 img: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80"
             },
             {
                 title: "Cena delle Stelle: Banchetto a Lume di Candela in Riva al Mare",
-                subtitle: "Cena privata a 5 portate con i piedi nella sabbia bianca, candele e il rumore delle onde, per una serata romantica indimenticabile.",
-                price: 200,
-                // Tavolo romantico e lume di candela in spiaggia
-                img: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80"
+                description: "Una cena gourmet privata servita direttamente sulla spiaggia di sabbia corallina. Sotto la luce di una volta celeste trapuntata di stelle e illuminati da fiaccole e candele, gusteremo un menù a base di pescato del giorno, aragoste e sapori tropicali con il riflusso marea a fare da sottofondo musicale.",
+                img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
             },
             {
                 title: "Colazione degli Sposi: Un Risveglio tra i Profumi dell'Isola",
-                subtitle: "Colazione romantica servita in camera o in una location riservata del resort, con frutta tropicale fresca e prelibatezze locali per iniziare il giorno con dolcezza.",
-                price: 75,
-                // Colazione tropicale vista mare
+                description: "Un risveglio da sogno con una ricca colazione servita in privacy totale nella veranda della propria camera o in riva alla spiaggia. Un trionfo di frutta tropicale freschissima (mango, papaya, maracuja), spremute naturali, pasticceria artigianale e caffè tutti i giorni.",
                 img: "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=800&q=80"
             },
             {
                 title: "Puro Abbandono: Giornata di Totale Relax in Resort",
-                subtitle: "Una giornata interamente dedicata al relax: piscina a sfioro con vista sull’oceano, lettini in spiaggia, cocktail al tramonto e nessun obbligo se non quello di godervi il momento.",
-                price: 75,
-                // Piscina infinity vista oceano
+                description: "Una giornata dedicata alla rigenerazione totale: momenti di puro ozio tra la piscina a sfioro sul mare, lettini riservati in spiaggia all'ombra delle palme, servizio cocktail e la libertà di godersi il tempo insieme senza orari né impegni, abbracciati dal clima calmo e tropicale dell'isola.",
                 img: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80"
             },
             {
                 title: "Il Gioco dei Delfini: Un Incontro nel Mare di Smeraldo",
-                subtitle: "Escursione in barca all’alba verso l’atollo di Mnemba per avvistare e nuotare con i delfini selvaggi nelle acque cristalline.",
-                price: 150,
-                // Delfini in acqua limpida
+                description: "Un'uscita in barca nelle prime ore del mattino verso la Riserva Marina dell'Atollo di Mnemba o la baia di Kizimkazi. Guide locali ci condurranno negli specchi d'acqua frequentati da banchi di delfini tursiopi e stenelle selvaggi, offrendo la possibilità di nuotare e fare snorkeling accanto a queste meravigliose creature nel loro habitat naturale.",
                 img: "https://images.unsplash.com/photo-1570459027562-4a916cc6113f?auto=format&fit=crop&w=800&q=80"
             },
             {
                 title: "Il Giardino di Corallo: Snorkeling tra i Pesci Tropicali",
-                subtitle: "Esplorazione subacquea della riserva marina di Mnemba, dove nuoterete tra barriere coralline colorate, tartarughe e migliaia di pesci tropicali.",
-                price: 100,
-                // Snorkeling barriera corallina
+                description: "Escursione guidata alla barriera corallina protetta dell'Atollo di Mnemba. Dotati di maschera e pinne, ci tufferemo in un acquario naturale di acque trasparenti per ammirare coralli intatti, pesci pagliaccio, pesci chirurgo, razze e una spettacolare biodiversità marina unica al mondo.",
                 img: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80"
             },
             {
                 title: "Tramonto dei Desideri: Crociera Romantica in Dhow con Cena",
-                subtitle: "Vela al tramonto su un tradizionale dhow in legno, con cena preparata a bordo mentre il cielo si tinge di oro, rosso e viola.",
-                price: 200,
-                // Barca dhow al tramonto
+                description: "Navigazione al tramonto a bordo del Dhow, la tipica imbarcazione in legno con vela latina. Mentre il sole scompare nell'Oceano Indiano dipingendo l'orizzonte di sfumature dorate e viola, a bordo verranno serviti aperitivi spunziosi, frutti di mare alla griglia e musica tradizionale Swahili.",
                 img: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=800&q=80"
             },
             {
                 title: "L'Isola Segreta: Picnic sulla Lingua di Sabbia",
-                subtitle: "Gita in barca verso una lingua di sabbia bianca che emerge con la bassa marea, con snorkeling e picnic a base di frutta tropicale fresca.",
-                price: 150,
-                // Atollo / Lingua di sabbia turchese
+                description: "Un'escursione fantastica verso una lingua di sabbia bianca (sandbank) che affiora momentaneamente nel mezzo dell'oceano grazie alla bassa marea. Qui allestiremo un picnic privato a base di frutti di mare, cocco fresco e frutta tropicale, circondati a 360 gradi dalle diverse sfumature di azzurro dell'oceano.",
                 img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
             },
             {
                 title: "I Profumi dell'Isola: Tour delle Spezie e Stone Town",
-                subtitle: "Visita a una piantagione di spezie (chiodi di garofano, cannella, vaniglia) e passeggiata culturale nel labirinto storico di Stone Town, patrimonio UNESCO.",
-                price: 100,
-                // Spezie cromatiche
+                description: "Un itinerario culturale e sensoriale completo. Si parte con la visita ad una 'Spice Farm' per toccare, annusare e degustare le spezie fresche che hanno reso celebre Zanzibar nel mondo (zenzero, vaniglia, noce moscata). Proseguiremo con un tour guidato nel labirinto di vicoli storici di Stone Town (Patrimonio UNESCO), tra portoni intagliati, mercati vivaci e palazzi storici del Sultano.",
                 img: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80"
             },
             {
                 title: "L'Isola delle Tartarughe: Incontro con i Giganti di Prison Island",
-                subtitle: "Breve traversata in barca fino a Prison Island per dare da mangiare alle famose tartarughe giganti di Aldabra e fare snorkeling nelle acque circostanti.",
-                price: 75,
-                // Tartaruga gigante
-                img: "https://images.unsplash.com/photo-1548366086-7f1b76106622?auto=format&fit=crop&w=800&q=80"
+                description: "Navigazione verso Changuu Island (Prison Island). Oltre alla storia dell'antica prigione, l'isola è celebre per la colonia di tartarughe giganti di Aldabra, arrivate come dono dalle Seychelles nel XIX secolo. Avremo l'opportunità di incontrare da vicino questi imponenti e docili giganti centenari ed effettuare snorkeling nei fondali dell'isola.",
+                // Foto di tartarughe giganti
+                img: "https://images.unsplash.com/photo-1518467166778-b88f373ffec7?auto=format&fit=crop&w=800&q=80"
             },
             {
                 title: "La Foresta Incantata: Alla Scoperta dei Colobi Rossi di Jozani",
-                subtitle: "Escursione nella foresta pluviale di Jozani, l’ultima a Zanzibar, per avvistare le scimmie endemiche Colobo rosso e camminare su passerelle sospese nella natura.",
-                price: 100,
-                // Scimmia nella vegetazione pluviale
+                description: "Un'escursione nella Foresta Nazionale di Jozani Chwaka Bay, l'unica foresta pluviale autoctona di Zanzibar. Camminando lungo sentieri ombreggiati e passerelle in legno sospese tra le mangrovie, avvisteremo la simpatica ed endemica scimmia Colobo Rosso di Zanzibar (Piliocolobus kirkii), specie protetta introvabile in qualsiasi altra parte del pianeta.",
                 img: "https://images.unsplash.com/photo-1523805009345-7448845a9e53?auto=format&fit=crop&w=800&q=80"
             }
         ];
 
-        // FUNZIONE PER RENDERIZARE LE CARDS
+        // RENDERING CARDS
         function renderCards(list, containerId) {
             const container = document.getElementById(containerId);
             container.innerHTML = list.map((item) => `
-                <div class="card" onclick="openModal('${escapeQuotes(item.title)}', '${escapeQuotes(item.subtitle)}', ${item.price}, '${item.img}')">
+                <div class="card" onclick="openModal('${escapeQuotes(item.title)}', '${escapeQuotes(item.description)}', '${item.img}')">
                     <div class="img-container">
                         <img src="${item.img}" alt="${item.title}" class="card-img" loading="lazy">
                     </div>
                     <div class="card-content">
-                        <div>
-                            <h3 class="card-title">${item.title}</h3>
-                            <p class="card-subtitle">${item.subtitle}</p>
-                        </div>
-                        <span class="card-btn">Regala o Contribuisci</span>
+                        <h3 class="card-title">${item.title}</h3>
+                        <span class="card-btn">Scopri e Regala</span>
                     </div>
                 </div>
             `).join('');
@@ -656,17 +679,37 @@
             return str.replace(/'/g, "\\'").replace(/"/g, '&quot;');
         }
 
-        // CARICAMENTO AL LOAD
+        // CARICAMENTO INIZIALE
         document.addEventListener('DOMContentLoaded', () => {
             renderCards(safariExperiences, 'safari-grid');
             renderCards(zanzibarExperiences, 'zanzibar-grid');
         });
 
+        // FILTRI CATEGORIE
+        function filterCategory(category) {
+            const secSafari = document.getElementById('sec-safari');
+            const secZanzibar = document.getElementById('sec-zanzibar');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            if (category === 'all') {
+                secSafari.style.display = 'block';
+                secZanzibar.style.display = 'block';
+            } else if (category === 'safari') {
+                secSafari.style.display = 'block';
+                secZanzibar.style.display = 'none';
+            } else if (category === 'zanzibar') {
+                secSafari.style.display = 'none';
+                secZanzibar.style.display = 'block';
+            }
+        }
+
         // GESTIONE MODALE
-        function openModal(title, subtitle, price, img) {
+        function openModal(title, description, img) {
             document.getElementById('modal-title').innerText = title;
-            document.getElementById('modal-subtitle').innerText = subtitle;
-            document.getElementById('modal-price').innerText = price;
+            document.getElementById('modal-description').innerText = description;
             document.getElementById('modal-img').src = img;
             
             document.getElementById('experience-modal').classList.add('active');
@@ -683,18 +726,37 @@
             }
         }
 
+        // CHIUSURA TASTO ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // NOTIFICA TOAST
+        function showToast(message) {
+            const toast = document.getElementById('toast-notification');
+            toast.innerText = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2500);
+        }
+
         // COPIA IBAN
         function copyIban() {
             const iban = document.getElementById('iban-text').innerText;
             navigator.clipboard.writeText(iban).then(() => {
-                const btn = document.querySelector('.copy-btn');
-                const origText = btn.innerText;
-                btn.innerText = 'Copiato! ✓';
-                btn.style.backgroundColor = '#8C5319';
-                setTimeout(() => {
-                    btn.innerText = origText;
-                    btn.style.backgroundColor = 'var(--green-safari)';
-                }, 2000);
+                showToast('IBAN copiato negli appunti! ✓');
+            });
+        }
+
+        // COPIA CAUSALE
+        function copyCausale() {
+            const title = document.getElementById('modal-title').innerText;
+            const causale = `Regalo Lista Nozze Silvia e Roberto - ${title}`;
+            navigator.clipboard.writeText(causale).then(() => {
+                showToast('Causale copiata negli appunti! ✓');
             });
         }
     </script>
